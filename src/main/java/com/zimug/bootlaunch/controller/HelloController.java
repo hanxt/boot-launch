@@ -13,7 +13,7 @@ public class HelloController {
 
     @RequestMapping("/hello")
     public Article hello() {
-        /*Article article = new Article(1L,"zimug");
+        /*ArticleRestService article = new ArticleRestService(1L,"zimug");
 
         article.setAuthor("字母哥");*/
 
