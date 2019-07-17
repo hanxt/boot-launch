@@ -19,14 +19,14 @@ family:
   family-name: "happy \n family"
   father:
     name: zimug
-    age: ${random.int}
+    age: 17
   mother:
     alias:
       - lovly
       - alice
   child:
     name: kobe
-    age: ${father.age:5}
+    age: ${family.father.age:5}
     friends:
       - hobby: football
         sex: male
