@@ -26,7 +26,7 @@ public class ArticleRestControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(new ArticleRestController()).build();
     }
 
-    @Test
+    /*@Test
     public void saveArticle() throws Exception {
 
         String article = "{\n" +
@@ -47,5 +47,5 @@ public class ArticleRestControllerTest {
 
         log.info(result.getResponse().getContentAsString());
 
-    }
+    }*/
 }
