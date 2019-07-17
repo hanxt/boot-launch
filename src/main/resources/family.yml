@@ -6,7 +6,7 @@
 #    6. 每个friend有两个属性：hobby(爱好)和性别(sex)
 
 family:
-  family-name: "happy \n family"
+  family-name: ENC(L6neEJFbNqDMAmodLvueEnNdLr6H8Rrr)
   father:
     name: zimug
     age: 17

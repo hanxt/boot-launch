@@ -56,6 +56,14 @@
             <optional>true</optional>
         </dependency>
 
+
+        <dependency>
+            <groupId>com.github.ulisesbocchio</groupId>
+            <artifactId>jasypt-spring-boot-starter</artifactId>
+            <version>1.18</version>
+        </dependency>
+
+
     </dependencies>
 
     <build>
