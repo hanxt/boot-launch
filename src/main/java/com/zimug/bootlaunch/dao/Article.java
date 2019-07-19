@@ -1,34 +1,35 @@
-package com.zimug.bootlaunch.model;
+package com.zimug.bootlaunch.dao;
 
-
-import com.fasterxml.jackson.annotation.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@JsonPropertyOrder(value={"content","title"})
+@Entity
+@Table(name="article")
 public class Article {
 
-   @JsonIgnore
+    @Id
+    @GeneratedValue
     private Long id;
 
-    //@JsonProperty("auther")
+    @Column(nullable = false,length = 32)
     private String author;
+
+    @Column(nullable = false, unique = true,length = 32)
     private String title;
+
+    @Column(length = 512)
     private String content;
 
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createTime;
-    private List<Reader> reader;
 
 
 }
