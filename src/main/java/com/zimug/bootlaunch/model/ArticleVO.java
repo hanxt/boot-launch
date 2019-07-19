@@ -15,12 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 @Builder
 @JsonPropertyOrder(value={"content","title"})
-public class Article {
+public class ArticleVO {
 
-   @JsonIgnore
+   //@JsonIgnore
     private Long id;
 
-    //@JsonProperty("auther")
+    @JsonProperty("auther")
     private String author;
     private String title;
     private String content;
