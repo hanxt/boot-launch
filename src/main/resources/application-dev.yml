@@ -12,11 +12,10 @@ spring:
     password: 4rfv$RFV
     driver-class-name: com.mysql.jdbc.Driver
 
-
-#mybatis:
-#   mapper-locations: classpath:generator/*.xml
-
-
 logging:
     level:
       com.zimug.bootlaunch: debug
+
+mybatis:
+    configuration:
+      mapUnderscoreToCamelCase: true
