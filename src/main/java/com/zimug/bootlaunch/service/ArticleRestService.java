@@ -1,17 +1,19 @@
 package com.zimug.bootlaunch.service;
 
 import com.zimug.bootlaunch.model.Article;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 
-@Slf4j
-@Service
-public class ArticleRestService {
+import java.util.List;
 
-    public String saveArticle( Article article) {
+public interface ArticleRestService {
 
-        log.info("saveArticle：{}",article);
+    public Article saveArticle(Article article);
 
-        return  "测试";
-    }
+    public void deleteArticle(Long id);
+
+    public void updateArticle(Article article);
+
+    public Article getArticle(Long id);
+
+    public List<Article> getAll();
 }
+
