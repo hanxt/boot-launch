@@ -1,4 +1,4 @@
-package com.zimug.bootlaunch.dao;
+package com.zimug.bootlaunch.jpa.testdb;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package com.zimug.bootlaunch.dao;
+package com.zimug.bootlaunch.jpa.testdb;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

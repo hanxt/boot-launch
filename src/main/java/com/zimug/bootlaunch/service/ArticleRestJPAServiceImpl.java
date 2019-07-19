@@ -1,7 +1,9 @@
 package com.zimug.bootlaunch.service;
 
-import com.zimug.bootlaunch.dao.Article;
-import com.zimug.bootlaunch.dao.ArticleRepository;
+import com.zimug.bootlaunch.jpa.testdb.Article;
+import com.zimug.bootlaunch.jpa.testdb.ArticleRepository;
+import com.zimug.bootlaunch.jpa.testdb2.Message;
+import com.zimug.bootlaunch.jpa.testdb2.MessageRepository;
 import com.zimug.bootlaunch.model.ArticleVO;
 import com.zimug.bootlaunch.utils.DozerUtils;
 import lombok.extern.slf4j.Slf4j;
@@ -20,12 +22,20 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
     private ArticleRepository articleRepository;
 
     @Resource
+    private MessageRepository messageRepository;
+
+    @Resource
     private Mapper dozerMapper;
 
     public ArticleVO saveArticle( ArticleVO article) {
 
         Article articlePO = dozerMapper.map(article,Article.class);
         articleRepository.save(articlePO);
+
+        Message message = new Message();
+        message.setName("kobe");
+        message.setContent("退役啦");
+        messageRepository.save(message);
 
         return  article;
     }
