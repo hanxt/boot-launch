@@ -9,6 +9,7 @@ import com.zimug.bootlaunch.utils.DozerUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.dozer.Mapper;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -27,6 +28,8 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
     @Resource
     private Mapper dozerMapper;
 
+
+    @Transactional
     public ArticleVO saveArticle( ArticleVO article) {
 
         Article articlePO = dozerMapper.map(article,Article.class);
@@ -36,6 +39,8 @@ public class ArticleRestJPAServiceImpl implements ArticleRestService {
         message.setName("kobe");
         message.setContent("退役啦");
         messageRepository.save(message);
+
+        int a = 3/0;
 
         return  article;
     }
