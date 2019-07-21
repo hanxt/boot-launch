@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>thymeleaf简单示例</title>
+</head>
+<body>
+<h1>Hello Thymeleaf</h1>
+
+<table class="">
+    <tr>
+        <td>作者</td>
+        <td>教程名称</td>
+        <td>内容</td>
+    </tr>
+    <tr th:each="item : ${articles}">
+        <td th:text="${item.author}"></td>
+        <td th:text="${item.title}"></td>
+        <td th:text="${item.content}"></td>
+    </tr>
+</table>
+
+<img src="/image/template.png">
+</body>
+</html>

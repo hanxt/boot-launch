@@ -18,7 +18,7 @@ public class TemplateController {
     ArticleRestService articleRestService;
 
     @GetMapping("/freemarker")
-    public String index(Model model) {
+    public String freemarker(Model model) {
 
         List<ArticleVO> articles = articleRestService.getAll();
 
@@ -26,5 +26,18 @@ public class TemplateController {
 
         //模版名称，实际的目录为：resources/templates/fremarkertemp.html
         return "fremarkertemp";
+    }
+
+
+
+    @GetMapping("/thymeleaf")
+    public String thymeleaf(Model model) {
+
+        List<ArticleVO> articles = articleRestService.getAll();
+
+        model.addAttribute("articles", articles);
+
+        //模版名称，实际的目录为：resources/templates/thymeleaftemp.html
+        return "thymeleaftemp";
     }
 }

@@ -11,11 +11,15 @@ spring:
     username: test
     password: 4rfv$RFV
     driver-class-name: com.mysql.jdbc.Driver
-  freemarker:
-    cache: false # 缓存配置 开发阶段应该配置为false 因为经常会改
-    suffix: .html # 模版后缀名 默认为ftl
-    charset: UTF-8 # 文件编码
-    template-loader-path: classpath:/templates/
+  thymeleaf:
+    cache: false # 启用缓存:建议生产开启
+    check-template-location: true # 检查模版是否存在
+    enabled: true # 是否启用
+    encoding: UTF-8 # 模版编码
+    excluded-view-names: # 应该从解析中排除的视图名称列表（用逗号分隔）
+    mode: HTML5 # 模版模式
+    prefix: classpath:/templates/ # 模版存放路径
+    suffix: .html # 模版后缀
 
 logging:
     level:
