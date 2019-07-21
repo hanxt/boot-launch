@@ -7,10 +7,15 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
   datasource:
-    url: jdbc:mysql://192.168.1.91:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.161.3:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: test
     password: 4rfv$RFV
     driver-class-name: com.mysql.jdbc.Driver
+  freemarker:
+    cache: false # 缓存配置 开发阶段应该配置为false 因为经常会改
+    suffix: .html # 模版后缀名 默认为ftl
+    charset: UTF-8 # 文件编码
+    template-loader-path: classpath:/templates/
 
 logging:
     level:
