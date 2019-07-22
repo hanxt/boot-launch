@@ -1,5 +1,10 @@
 server:
   port: 8888
+  undertow:
+      # 设置IO线程数, 它主要执行非阻塞的任务,它们会负责多个连接, 默认设置每个CPU核心一个线程
+      io-threads: 4
+      # 工作任务线程池，默认为io-threads的8倍
+      worker-threads: 32
 
 
 spring:
