@@ -17,6 +17,10 @@ spring:
     charset: UTF-8 # 文件编码
     template-loader-path: classpath:/templates/
 
+context:
+  listener:
+    classes: com.zimug.bootlaunch.customlistener.MyListener3
+
 logging:
     level:
       com.zimug.bootlaunch: debug
