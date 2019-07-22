@@ -9,17 +9,45 @@
 
 <table class="">
     <tr>
+        <td>下标</td>
+        <td>序号</td>
         <td>作者</td>
         <td>教程名称</td>
         <td>内容</td>
     </tr>
-    <tr th:each="item : ${articles}">
-        <td th:text="${item.author}"></td>
-        <td th:text="${item.title}"></td>
-        <td th:text="${item.content}"></td>
-    </tr>
+    <div th:if="${articles != null}">
+        <div>的确存在..</div>
+        <tr th:each="item,stat: ${articles}" th:style="${stat.odd}?'background-color:#CCCCCC':'background-color:red'">
+            <div th:if="${stat.size == 2}">
+                <td th:text="${stat.index}"></td>
+            </div>
+
+            <td th:text="${stat.count}"></td>
+            <td th:text="${item.author}"></td>
+            <td th:text="${item.title}"></td>
+            <td th:text="${item.content}"></td>
+        </tr>
+    </div>
+
+
 </table>
 
-<img src="/image/template.png">
+
+<section>第二段</section>
+<form id="userForm">
+    <input id="id" name="id" th:value="${user.id}"/>
+    <input id="username" name="username" th:value="${user.username}"/>
+    <input id="password" name="password" th:value="${user.password}"/>
+</form>
+
+<div th:text="hello"></div>
+
+<div th:text="${articles[0].author}"></div>
+
+<div th:text="${'I am '+(user.username!=null?user.username:'NoBody')}"></div>
+
+
+
+<img th:src="@{/image/template.png}">
 </body>
 </html>
