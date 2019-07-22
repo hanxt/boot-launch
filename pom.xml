@@ -11,6 +11,7 @@
     <groupId>com.zimug</groupId>
     <artifactId>boot-launch</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>boot-launch</name>
     <description>Spring Boot 2 learing</description>
 
@@ -31,9 +32,16 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+       <!-- <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
-        </dependency>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -115,6 +123,7 @@
     </dependencies>
 
     <build>
+        <finalName>boot-launch</finalName>
         <resources>
             <resource>
                 <directory>src/main/java</directory>
