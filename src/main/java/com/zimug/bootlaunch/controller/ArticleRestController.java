@@ -1,8 +1,7 @@
 package com.zimug.bootlaunch.controller;
 
-import com.zimug.bootlaunch.model.AjaxResponse;
+import com.zimug.bootlaunch.config.exception.AjaxResponse;
 import com.zimug.bootlaunch.model.ArticleVO;
-import com.zimug.bootlaunch.service.ArticleMybatisRestServiceImpl;
 import com.zimug.bootlaunch.service.ArticleRestService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -58,7 +57,7 @@ public class ArticleRestController {
 
         articleRestService.updateArticle(article);
 
-        return AjaxResponse.success(article);
+        return AjaxResponse.success();
     }
  
     //@RequestMapping(value = "/article/{id}", method = GET, produces = "application/json")
