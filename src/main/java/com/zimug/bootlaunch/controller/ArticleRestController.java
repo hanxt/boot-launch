@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.validation.Valid;
 
 
 @Slf4j
@@ -52,7 +53,7 @@ public class ArticleRestController {
  
     //@RequestMapping(value = "/article/{id}", method = PUT, produces = "application/json")
     @PutMapping("/article/{id}")
-    public @ResponseBody AjaxResponse updateArticle(@PathVariable Long id, @RequestBody ArticleVO article) {
+    public @ResponseBody AjaxResponse updateArticle(@PathVariable Long id, @Valid @RequestBody ArticleVO article) {
         article.setId(id);
 
         articleRestService.updateArticle(article);
