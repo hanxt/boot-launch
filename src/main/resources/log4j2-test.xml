@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <Appenders>
+        <Console name="CONSOLE" target="SYSTEM_OUT">
+            <PatternLayout charset="UTF-8" pattern="[%-5p] %d %c - %m%n" />
+        </Console>
+
+        <RollingFile name="runtimeFile" fileName="./logs/boot-launch.log" filePattern="./logs/boot-launch-%d{yyyy-MM-dd}.log"
+                     append="true">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS Z}\t%level\t%class\t%line\t%thread\t%msg%n"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy/>
+            </Policies>
+            <!-- 此行以下为自动清理日志的配置 -->
+            <DefaultRolloverStrategy>
+                <Delete basePath="./logs">
+                    <!-- glob 项为需要自动清理日志的pattern -->
+                    <IfFileName glob="*.log"/>
+                    <!-- 30d 表示自动清理掉30天以前的日志文件 -->
+                    <IfLastModified age="30d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+            <!-- 此行以上为自动清理日志的配置 -->
+        </RollingFile>
+
+
+    </Appenders>
+
+    <Loggers>
+        <root level="info">
+            <AppenderRef ref="CONSOLE" />
+            <AppenderRef ref="runtimeFile" />
+        </root>
+    </Loggers>
+
+</configuration>

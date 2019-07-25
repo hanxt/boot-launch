@@ -17,9 +17,9 @@ spring:
     charset: UTF-8 # 文件编码
     template-loader-path: classpath:/templates/
 
+
 logging:
-    level:
-      com.zimug.bootlaunch: debug
+    config: classpath:log4j2-dev.xml
 
 mybatis:
     configuration:
