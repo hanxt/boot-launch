@@ -16,7 +16,10 @@ spring:
     suffix: .html # 模版后缀名 默认为ftl
     charset: UTF-8 # 文件编码
     template-loader-path: classpath:/templates/
-
+  quartz:
+    job-store-type: JDBC #数据库存储quartz任务配置
+    jdbc:
+      initialize-schema: NEVER #自动初始化表结构，第一次启动的时候这里写always
 
 logging:
     config: classpath:log4j2-dev.xml

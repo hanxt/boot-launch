@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class QuartzSimpleConfig {
     //指定具体的定时任务类
-    @Bean
+    /*@Bean
     public JobDetail uploadTaskDetail() {
         return JobBuilder.newJob(QuartzSimpleTask.class).withIdentity("QuartzSimpleTask").storeDurably().build();
     }
@@ -15,11 +15,11 @@ public class QuartzSimpleConfig {
     @Bean
     public Trigger uploadTaskTrigger() {
         //这里设定触发执行的方式
-        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("*/5 * * * * ?");
+        CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule("0/5 * * * * ?");
         // 返回任务触发器
         return TriggerBuilder.newTrigger().forJob(uploadTaskDetail())
                 .withIdentity("QuartzSimpleTask")
                 .withSchedule(scheduleBuilder)
                 .build();
-    }
+    }*/
 }
