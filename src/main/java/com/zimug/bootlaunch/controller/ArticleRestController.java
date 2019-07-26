@@ -62,7 +62,7 @@ public class ArticleRestController {
         return AjaxResponse.success();
     }
 
-    @Cacheable(value="article")
+
     //@RequestMapping(value = "/article/{id}", method = GET, produces = "application/json")
     @GetMapping( "/article/{id}")
     public @ResponseBody  AjaxResponse getArticle(@PathVariable Long id) {
