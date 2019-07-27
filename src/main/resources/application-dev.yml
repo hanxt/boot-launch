@@ -43,3 +43,16 @@ logging:
 mybatis:
     configuration:
       mapUnderscoreToCamelCase: true
+
+
+zimug:
+  fastdfs:
+    httpserver: http://192.168.161.3:8888/ #这个不是fastdfs属性，但是填上之后，在使用FastDFSClientUtil会得到完整的http文件访问路径
+    connect_timeout: 5
+    network_timeout: 30
+    charset: UTF-8
+    tracker_server: # tracker_server 可以配置成数组
+      - 192.168.161.3:22122
+    max_total: 50
+    http_anti_steal_token: false # 如果有防盗链的话，这里true
+    http_secret_key: # 有防盗链，这里填secret_key

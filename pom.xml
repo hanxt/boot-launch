@@ -117,6 +117,12 @@
             <artifactId>spring-boot-starter-cache</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.zimug.spring</groupId>
+            <artifactId>zimug-fastdfs-spring-boot-starter</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
 
         <dependency>
             <groupId>org.webjars</groupId>
