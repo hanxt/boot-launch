@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SSE</title>
+</head>
+<body>
+<div id = "message"></div>
+<script>
+    if (window.EventSource) {
+        var source = new EventSource('orderpay');
+        innerHTML = '';
+        source.addEventListener('message', function(e) {
+            innerHTML += e.data + "<br/>";
+            document.getElementById("message").innerHTML = innerHTML;
+        });
+
+        source.addEventListener('open', function(e) {
+            console.log("连接打开.");
+        }, false);
+
+        // 响应finish事件，主动关闭EventSource
+        source.addEventListener('finish', function(e) {
+            console.log("数据接收完毕，关闭EventSource");
+            source.close();
+            console.log(e);
+        }, false);
+
+        source.addEventListener('error', function(e) {
+            if (e.readyState == EventSource.CLOSED) {
+                console.log("连接关闭");
+            } else {
+                console.log(e);
+            }
+        }, false);
+    } else {
+        console.log("你的浏览器不支持SSE");
+    }
+</script>
+
+</body>
+</html>

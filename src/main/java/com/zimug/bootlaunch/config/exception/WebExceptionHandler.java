@@ -6,12 +6,23 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.context.request.async.AsyncRequestTimeoutException;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class WebExceptionHandler {
+    @ExceptionHandler(AsyncRequestTimeoutException.class)
+    @ResponseBody
+    public String handleAsyncRequestTimeoutException(AsyncRequestTimeoutException e) {
+        return SseEmitter.event().data("timeout!!").build().stream()
+                .map(d -> d.getData().toString())
+                .collect(Collectors.joining());
+    }
+
     @ExceptionHandler(ModelViewException.class)
     public ModelAndView viewExceptionHandler(HttpServletRequest req, ModelViewException e) {
         ModelAndView modelAndView = new ModelAndView();
