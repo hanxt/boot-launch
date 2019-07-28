@@ -123,6 +123,12 @@
             <version>1.0.0</version>
         </dependency>
 
+        <!-- 引入websocket依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-websocket</artifactId>
+        </dependency>
+
 
         <dependency>
             <groupId>org.webjars</groupId>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>websocket测试</title>
+    <style type="text/css">
+        h3,h4{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+
+<h3>WebSocket测试，在<span style="color:red">控制台</span>查看测试信息输出！</h3>
+<h4>
+    <br>
+    http://localhost:8888/api/ws/sendOne?message=单发消息内容&id=none
+    <br>
+    http://localhost:8888/api/ws/sendAll?message=群发消息内容
+</h4>
+
+<h3>请输入要发送给服务器端的消息：</h3><br/>
+
+<input id="text" type="text" />
+<button onclick="sendToServer()">发送服务器消息</button>
+<button onclick="closeWebSocket()">关闭连接</button>
+<br>信息:<span id="message"></span>
+
+
+<script type="text/javascript">
+    var socket;
+    if (typeof (WebSocket) == "undefined") {
+        console.log("遗憾：您的浏览器不支持WebSocket");
+    } else {
+        socket = new WebSocket("ws://localhost:8888/ws/asset");
+        //连接打开事件
+        socket.onopen = function() {
+            console.log("Socket 已打开");
+            socket.send("消息发送测试(From Client)");
+        };
+        //收到消息事件
+        socket.onmessage = function(msg) {
+            document.getElementById('message').innerHTML += msg.data + '<br/>';
+        };
+        //连接关闭事件
+        socket.onclose = function() {
+            console.log("Socket已关闭");
+        };
+        //发生了错误事件
+        socket.onerror = function() {
+            alert("Socket发生了错误");
+        }
+
+        //窗口关闭时，关闭连接
+        window.unload=function() {
+            socket.close();
+        };
+    }
+
+    //关闭连接
+    function closeWebSocket(){
+        socket.close();
+    }
+
+    //发送消息给服务器
+    function sendToServer(){
+        var message = document.getElementById('text').value;
+        socket.send(message);
+    }
+</script>
+
+</body>
+</html>
