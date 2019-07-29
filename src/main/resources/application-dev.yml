@@ -41,6 +41,8 @@ spring:
       max-connections: 10
     packages:
       trust-all: true   #是否信任所有包，信任后所有包内的对象均可序列化传输
+  jms:
+    pub-sub-domain: true
 
 caching:
   ttlmap:
