@@ -31,6 +31,16 @@ spring:
     type: redis
     redis:
       time-to-live: 600
+  activemq:
+    user: admin
+    password: admin
+    broker-url: tcp://192.168.161.3:61616
+    in-memory: false
+    pool:
+      enabled: true
+      max-connections: 10
+    packages:
+      trust-all: true   #是否信任所有包，信任后所有包内的对象均可序列化传输
 
 caching:
   ttlmap:
