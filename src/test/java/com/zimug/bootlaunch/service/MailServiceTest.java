@@ -62,4 +62,41 @@ public class MailServiceTest {
 
         mailService.sendHtmlMail("431899405@qq.com","一封freemarker模板的html测试邮件",templateHtml);
     }
+
+    @Test
+    public void sendAttchmentHtmlMail() throws IOException, TemplateException, MessagingException {
+
+        List<ArticleVO> articles = new ArrayList<>();
+        articles.add(new ArticleVO(1L,"zimug","手摸手教你学spring boot","内容一",new Date(),null));
+        articles.add(new ArticleVO(2L,"zimug","手摸手教你学spring boot","内容二",new Date(),null));
+
+        Template template = freeMarkerConfigurer.getConfiguration().getTemplate("fremarkertemp.html");
+
+        Map<String,Object> model = new HashMap<>();
+        model.put("articles",articles);
+        String templateHtml = FreeMarkerTemplateUtils.processTemplateIntoString(template,model);
+
+        String filePath = "D:\\courseview\\springboot\\template.png";
+
+        mailService.sendAttchmentHtmlMail("431899405@qq.com","一封freemarker模板的html测试邮件",templateHtml,filePath);
+    }
+
+    @Test
+    public void sendResourceAttchmentHtmlMail() throws IOException, TemplateException, MessagingException {
+
+        List<ArticleVO> articles = new ArrayList<>();
+        articles.add(new ArticleVO(1L,"zimug","手摸手教你学spring boot","内容一",new Date(),null));
+        articles.add(new ArticleVO(2L,"zimug","手摸手教你学spring boot","内容二",new Date(),null));
+
+        Template template = freeMarkerConfigurer.getConfiguration().getTemplate("fremarkertemp.html");
+
+        Map<String,Object> model = new HashMap<>();
+        model.put("articles",articles);
+        String templateHtml = FreeMarkerTemplateUtils.processTemplateIntoString(template,model);
+
+        String filePath = "D:\\courseview\\springboot\\template.png";
+
+        mailService.sendResourceAttchmentHtmlMail("431899405@qq.com","一封freemarker模板的html测试邮件",templateHtml,filePath);
+
+    }
 }
