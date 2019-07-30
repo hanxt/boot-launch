@@ -44,6 +44,13 @@ spring:
   jms:
     pub-sub-domain: true
 
+
+rocketmq:
+  name-server: 192.168.161.4:9876 # 自己的RocketMQ-nameserver服务地址
+  producer:
+    send-message-timeout: 300000
+    group: launch-group
+
 caching:
   ttlmap:
     article: 10
