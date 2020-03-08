@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping
+          http://dozermapper.github.io/schema/bean-mapping.xsd">
+    <configuration>
+        <date-format>yyyy-MM-dd HH:mm:ss</date-format>
+    </configuration>
+    <mapping>
+        <class-a>com.zimug.bootlaunch.dozer.TestA</class-a>
+        <class-b>com.zimug.bootlaunch.dozer.TestB</class-b>
+        <field>
+            <a>createDate</a>
+            <b>cDate</b>
+        </field>
+    </mapping>
+
+</mappings>

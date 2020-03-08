@@ -14,7 +14,7 @@ primarydb:
   uniqueResourceName: primary
   xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
   xaProperties:
-    url: jdbc:mysql://192.168.1.91:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.161.3:3306/testdb?useUnicode=true&characterEncoding=utf-8&useSSL=false
     user: test
     password: 4rfv$RFV
   exclusiveConnectionMode: true
@@ -26,10 +26,14 @@ secondarydb:
   uniqueResourceName: secondary
   xaDataSourceClassName: com.mysql.jdbc.jdbc2.optional.MysqlXADataSource
   xaProperties:
-    url: jdbc:mysql://192.168.1.91:3306/testdb2?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.161.3:3306/testdb2?useUnicode=true&characterEncoding=utf-8&useSSL=false
     user: test
     password: 4rfv$RFV
   exclusiveConnectionMode: true
   minPoolSize: 3
   maxPoolSize: 10
   testQuery: SELECT 1 from dual #由于采用HikiriCP，用于检测数据库连接是否存活
+
+
+dozer:
+  mapping-files: classpath:/dozer/dozer-mapping.xml
